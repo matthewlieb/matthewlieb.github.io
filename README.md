@@ -1,6 +1,5 @@
-# JohnDoe
-A Responsive Free One Page Portfolio Website template
-
+# Matthew Lieb Portfolio
+My GitHub.io portfolio! Made using a bootstrap template.
 
 
 
