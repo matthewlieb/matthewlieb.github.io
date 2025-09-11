@@ -173,6 +173,9 @@
         transition: all 0.3s ease;
         margin-bottom: 30px;
         border: 1px solid var(--neutral-200);
+        margin-left: 10px;
+        margin-right: 10px;
+        text-align: center;
       }
       
       .blog-item:hover {
@@ -181,12 +184,25 @@
         border-color: var(--primary-blue-light);
       }
       
+      .blog-item .img {
+        text-align: center;
+        margin-bottom: 16px;
+      }
+      
+      .blog-item .img img {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      
       .blog-item h2 a {
         color: var(--neutral-900);
         font-weight: 600;
-        font-size: 20px;
+        font-size: 18px;
         text-decoration: none;
         transition: color 0.3s ease;
+        text-align: center;
+        display: block;
+        margin-bottom: 12px;
       }
       
       .blog-item h2 a:hover {
@@ -194,10 +210,11 @@
       }
       
       .blog-item p {
-        color: var(--neutral-600);
+        color: var(--neutral-700);
         line-height: 1.6;
         margin-top: 12px;
         font-size: 14px;
+        text-align: left;
       }
       
       /* Enhanced Navigation */
@@ -288,9 +305,10 @@
       }
       
       .about-text p {
-        color: var(--neutral-600);
-        line-height: 1.6;
-        font-size: 14px;
+        color: var(--neutral-800);
+        line-height: 1.7;
+        font-size: 15px;
+        font-weight: 400;
       }
       
       .weight-outline-btn {
@@ -354,6 +372,8 @@
         border: 1px solid var(--neutral-200);
         transition: all 0.3s ease;
         margin-bottom: 24px;
+        margin-left: 15px;
+        margin-right: 15px;
       }
       
       .features .services .item:hover {
@@ -386,9 +406,55 @@
       }
       
       .features .services .item p {
-        color: var(--neutral-600);
-        line-height: 1.6;
+        color: var(--neutral-700);
+        line-height: 1.7;
+        font-size: 15px;
+        font-weight: 400;
+      }
+      
+      /* Contact Section Improvements */
+      .contact-details .dark-box {
+        background: var(--white);
+        border: 1px solid var(--neutral-200);
+        border-radius: 12px;
+        padding: 24px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+        margin-bottom: 20px;
+      }
+      
+      .contact-details .dark-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        border-color: var(--primary-blue-light);
+      }
+      
+      .contact-details .dark-box h2 {
+        color: var(--neutral-900);
+        font-weight: 600;
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+      
+      .contact-details .dark-box h2 i {
+        color: var(--primary-blue);
+        margin-right: 8px;
+      }
+      
+      .contact-details .dark-box p {
+        color: var(--neutral-700);
         font-size: 14px;
+        margin: 0;
+      }
+      
+      .contact-details .dark-box p a {
+        color: var(--primary-blue);
+        text-decoration: none;
+      }
+      
+      .contact-details .dark-box p a:hover {
+        text-decoration: underline;
       }
     </style>
   <!-- Custom Favicon -->
@@ -447,18 +513,9 @@
                 <div class="col-md-8 col-md-offset-1 inner">
                   <h1 class="animated fadeInDown">
                     M<span style="color:#101820;">a</span>tt<br/>
-                    <span>L<span style="color:#FEE715">i</span>eb</span>
+                    <span>L<span style="color:#2563eb">i</span>eb</span>
                   </h1><!-- Title -->
                   <h3 class="animated fadeInUp delay-05s"><span class="rotate">Systems Architect, AI Enthusiast, Interdisciplinary Solver</span></h3><!-- Text Rotator -->
-                </div>
-              </div>
-        <!-- Learn More Button -->
-              <div class="row">
-                <div class="col-md-6 col-md-offset-3 text-center">
-                  <a href="index.html#about" class="scrollto wow fadeInUp delay-5s ">
-                  <p>SEE MORE</p>
-                  <p class="scrollto--arrow"><img src="img/scroll-down.png" alt="scroll down arrow"></p>
-              </a>
                 </div>
               </div>
             </div>

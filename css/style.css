@@ -308,9 +308,9 @@ table {
     padding:20px 0;
 }
 .dark-box:hover,.dark-box:focus {
-    -webkit-box-shadow: 0px 3px 0px 0px #FEE715;
-    -moz-box-shadow: 0px 3px 0px 0px #FEE715;
-    box-shadow: 0px 3px 0px 0px #FEE715;
+    -webkit-box-shadow: 0px 3px 0px 0px #2563eb;
+    -moz-box-shadow: 0px 3px 0px 0px #2563eb;
+    box-shadow: 0px 3px 0px 0px #2563eb;
 }
 .box-hover {
     transition:all 500ms ease-in-out;
@@ -887,8 +887,8 @@ img.grayscale:hover {
 .outline-btn {
     display:inline-block;
     padding:25px 40px;
-    color: #FEE715;
-    border: solid 1px #FEE715;
+    color: #2563eb;
+    border: solid 1px #2563eb;
     text-transform:uppercase;
     font-weight:bold;
     letter-spacing:1px;
@@ -896,7 +896,7 @@ img.grayscale:hover {
 .outline-btn:hover,.outline-btn:focus {
     color: #101820;
     border: solid 1px #101820;
-    background: #FEE715;
+    background: #2563eb;
 }
 .weight-outline-btn {
     display:inline-block;
