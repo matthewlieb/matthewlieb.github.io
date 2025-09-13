@@ -241,20 +241,51 @@
       }
       
       /* Modern Hero Section */
-      /* Header and Hero Section Styling */
-      header#home {
-        background: #FBFBFB;
-        padding: 5px 0;
-        margin: 0;
-        border: none;
-        min-height: auto;
+      /* Hidden Navigation Menu */
+      .hidden-nav {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 300px;
+        height: 100vh;
+        background: var(--white);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+        z-index: 1000;
+        padding: 60px 20px 20px;
       }
       
+      .hidden-nav.show {
+        left: 0;
+      }
+      
+      .hidden-nav .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      .hidden-nav .nav-links a {
+        color: var(--neutral-900);
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--neutral-200);
+        transition: color 0.3s ease;
+      }
+      
+      .hidden-nav .nav-links a:hover {
+        color: var(--primary-blue);
+      }
+      
+      /* Hero Section Styling */
       .hero {
-        padding-top: 0px !important;
+        padding-top: 20px !important;
         padding-bottom: 40px !important;
         background: #FBFBFB;
         margin-top: 0;
+        min-height: 100vh;
       }
       
       /* Menu button styling */
@@ -563,30 +594,21 @@
 
 
       <!-- ==========================
-        HEADER SECTION 
+        HERO SECTION 
         =========================== -->
-        <header id="home">
-        <!-- creative menu -->
-            <div class="container-fluid">
-              <div class="row">
-                <div class="menu-wrap">
-        <nav class="menu">
-            <!-- Menu Links -->
-          <div class="icon-list">
-            <a href="index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
-            <a href="index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
-            <a href="index.html#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a>
-            <a href="index.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
-            <a href="index.html#github"><i class="fa fa-fw fa-github"></i><span>GitHub</span></a>
-            <a href="index.html#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a>
-            <a href="index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
+        <!-- Hidden Navigation Menu -->
+        <nav class="hidden-nav" id="hidden-nav">
+          <div class="nav-links">
+            <a href="index.html#hero">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#service">Services</a>
+            <a href="index.html#portfolio">Portfolio</a>
+            <a href="index.html#github">GitHub</a>
+            <a href="index.html#blog">Blog</a>
+            <a href="index.html#contact">Contact</a>
           </div>
         </nav>
-          </div>
-          <button class="menu-button" id="open-button"></button><!-- menu button -->
-              </div><!--/row-->
-            </div><!--/container-->
-      <!-- Header Image -->
+        
           <section class="hero" id="hero">
             <div class="container">
         <!-- Slider Button (don't edit!)-->
@@ -607,10 +629,9 @@
               </div>
             </div>
           </section>
-      <!-- Header Image End -->
-        </header>
+      <!-- Hero Section End -->
     <!-- ==========================
-        HEADER SECTION END  
+        HERO SECTION END  
         =========================== -->
     
     
@@ -1132,6 +1153,23 @@
       animation: "fade", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
       separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
       speed: 2000 // How many milliseconds until the next word show.
+    });
+    
+    // Hamburger menu functionality
+    document.getElementById('nav-toggle').addEventListener('click', function(e) {
+      e.preventDefault();
+      const hiddenNav = document.getElementById('hidden-nav');
+      hiddenNav.classList.toggle('show');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const hiddenNav = document.getElementById('hidden-nav');
+      const navToggle = document.getElementById('nav-toggle');
+      
+      if (!hiddenNav.contains(e.target) && !navToggle.contains(e.target)) {
+        hiddenNav.classList.remove('show');
+      }
     });
     </script>
   
