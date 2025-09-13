@@ -328,6 +328,26 @@
         font-weight: 500;
       }
       
+      /* Make text white for sections with dark backgrounds */
+      .color-bg .about-text h6 {
+        color: white !important;
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 16px;
+      }
+      
+      .color-bg .about-text p {
+        color: white !important;
+        line-height: 1.7;
+        font-size: 15px;
+        font-weight: 500;
+      }
+      
+      /* Also make sure any other text in dark sections is white */
+      .color-bg .about-text {
+        color: white !important;
+      }
+      
       .weight-outline-btn {
         background: transparent;
         color: var(--primary-blue);
@@ -346,6 +366,17 @@
         background: var(--primary-blue);
         color: white;
         text-decoration: none;
+      }
+      
+      /* Make buttons white on dark backgrounds */
+      .color-bg .weight-outline-btn {
+        color: white !important;
+        border-color: white !important;
+      }
+      
+      .color-bg .weight-outline-btn:hover {
+        background: white !important;
+        color: var(--primary-blue) !important;
       }
       
       /* Responsive Improvements */
