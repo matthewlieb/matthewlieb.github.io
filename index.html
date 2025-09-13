@@ -55,8 +55,8 @@
       }
       
       .portfolio-item:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         border-color: var(--primary-blue-light);
       }
       
@@ -179,8 +179,8 @@
       }
       
       .blog-item:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        transform: translateY(-6px);
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
         border-color: var(--primary-blue-light);
       }
       
@@ -281,22 +281,69 @@
       
       /* Hero Section Styling */
       .hero {
-        padding-top: 20px !important;
-        padding-bottom: 40px !important;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
         background: #FBFBFB;
         margin-top: 0;
-        min-height: 100vh;
+        min-height: auto;
+        display: flex;
+        align-items: center;
       }
       
-      /* Menu button styling */
-      .menu-button {
-        background: transparent;
-        border: none;
-        padding: 10px;
+      /* Hamburger Menu Button Styling */
+      .nav_slide_button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1001;
+        width: 50px;
+        height: 50px;
+        background: var(--primary-blue);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      
+      .nav_slide_button:hover {
+        background: var(--primary-blue-dark);
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+      }
+      
+      .nav_slide_button span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: white;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+      
+      .nav_slide_button span:before,
+      .nav_slide_button span:after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background: white;
+        transition: all 0.3s ease;
+      }
+      
+      .nav_slide_button span:before {
+        top: -6px;
+      }
+      
+      .nav_slide_button span:after {
+        top: 6px;
       }
       
       .navicon {
-        margin-top: 10px;
+        position: relative;
+        z-index: 1002;
       }
       
       .hero h1 {
@@ -306,13 +353,15 @@
         line-height: 0.9;
         color: var(--neutral-900);
         margin-top: 0;
+        margin-bottom: 20px;
       }
       
       .hero h3 {
         font-size: 1.5rem;
         font-weight: 300;
         color: var(--neutral-600);
-        margin-top: 20px;
+        margin-top: 0;
+        margin-bottom: 40px;
       }
       
       /* Fixed SEE MORE Button */
@@ -467,14 +516,32 @@
       /* Service Section Improvements */
       .features .services .item {
         background: var(--white);
-        border-radius: 12px;
-        padding: 32px 24px;
-        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+        border-radius: 16px;
+        padding: 40px 30px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         border: 1px solid var(--neutral-200);
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
         margin-bottom: 30px;
         height: 100%;
         text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .features .services .item:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+      
+      .features .services .item:hover:before {
+        transform: scaleX(1);
       }
       
       .features .services .col-md-4 {
@@ -495,8 +562,8 @@
       }
       
       .features .services .item:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         border-color: var(--primary-blue-light);
       }
       
@@ -692,7 +759,7 @@
                   <img class="grayscale" src="img/portfolio/portfolio-09-thumbnail.jpg" alt="Explain To Me AI Project">
                   <div class="overlay">
                       <a href="img/portfolio/portfolio-09-large.jpg" data-lightbox="roadtrip" title="Explain To Me AI - AI-powered application that explains any topic and asks related trivia questions" class="expand"><i class="fa fa-search-plus"></i></a>
-                      <a href="https://github.com/matthewlieb/explain-to-me" target="_blank" class="expand"><i class="fa fa-github"></i></a>
+                      <a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank" class="expand"><i class="fa fa-github"></i></a>
                   </div>
               </div>
           </div>
@@ -992,7 +1059,7 @@
                         <div class="img">
                           <img src="img/portfolio/portfolio-09-thumbnail.jpg" class="grayscale" alt="Explain To Me AI Project" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;"><!-- Blog Image -->
                         </div>
-                        <h2><a href="https://github.com/matthewlieb/explain-to-me" target="_blank">Explain To Me AI</a></h2><!-- Headline -->
+                        <h2><a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank">Explain To Me AI</a></h2><!-- Headline -->
                         <p>An AI-powered application that explains any topic and asks related trivia questions, written in Python with modern AI libraries.</p><!-- Description -->
                       </div>
                     </div>
