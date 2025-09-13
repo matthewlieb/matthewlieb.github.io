@@ -187,11 +187,21 @@
       .blog-item .img {
         text-align: center;
         margin-bottom: 16px;
+        overflow: hidden;
+        border-radius: 8px;
       }
       
       .blog-item .img img {
         border-radius: 8px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      .blog-item:hover .img img {
+        transform: scale(1.05);
       }
       
       .blog-item h2 a {
@@ -210,10 +220,11 @@
       }
       
       .blog-item p {
-        color: var(--neutral-700);
+        color: var(--neutral-900);
         line-height: 1.6;
         margin-top: 12px;
         font-size: 14px;
+        font-weight: 500;
         text-align: left;
       }
       
@@ -230,12 +241,18 @@
       }
       
       /* Modern Hero Section */
+      .hero {
+        padding-top: 60px !important;
+        padding-bottom: 40px !important;
+      }
+      
       .hero h1 {
         font-size: 4.5rem;
         font-weight: 900;
         letter-spacing: -2px;
         line-height: 0.9;
         color: var(--neutral-900);
+        margin-top: 0;
       }
       
       .hero h3 {
@@ -305,10 +322,10 @@
       }
       
       .about-text p {
-        color: var(--neutral-800);
+        color: var(--neutral-900);
         line-height: 1.7;
         font-size: 15px;
-        font-weight: 400;
+        font-weight: 500;
       }
       
       .weight-outline-btn {
@@ -372,8 +389,13 @@
         border: 1px solid var(--neutral-200);
         transition: all 0.3s ease;
         margin-bottom: 24px;
-        margin-left: 15px;
-        margin-right: 15px;
+        margin-left: 8px;
+        margin-right: 8px;
+        height: 100%;
+      }
+      
+      .features .services .col-md-4 {
+        margin-bottom: 30px;
       }
       
       .features .services .item:hover {
@@ -809,21 +831,6 @@
 
   
       
-    <!-- ==========================
-        CUSTOM SPACER
-        =========================== -->
-    <div class="spacer-cta text-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <a href="index.html#contact" class="outline-btn">hire matt lieb</a>
-              </div>
-            </div>
-          </div>
-        </div>
-    <!-- ==========================
-        CUSTOM SPACER END
-        =========================== -->
   
 
 

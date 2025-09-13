@@ -619,7 +619,7 @@ h1.arrow span {
     color: #8C8C8C;
 }
 .color-bg h1.arrow span {
-    color: #FFE800;
+    color: #2563eb;
 }
 .color-bg h1.arrow {
     color: #FFF;
@@ -948,10 +948,10 @@ ul.social-buttons li:last-child {
 .up-btn {
     width:55px;
     height:55px;
-    background: rgba(255, 232, 1, 0.9);
+    background: rgba(37, 99, 235, 0.9);
     display:block;
     margin:0 auto;
-    color: #101820;
+    color: white;
     font-size:18px;
     line-height:52px;
     text-align:center;
@@ -961,10 +961,13 @@ ul.social-buttons li:last-child {
     right:0;
     margin-left:auto;
     margin-right:auto;
+    border-radius: 50%;
+    transition: all 0.3s ease;
 }
 .up-btn:hover,up-btn:focus {
-    color: black;
-    background: #FFE800;
+    color: white;
+    background: #1d4ed8;
+    transform: translateY(-2px);
 }
 .contact-details {
     margin:70px 0;
