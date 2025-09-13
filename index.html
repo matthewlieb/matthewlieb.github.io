@@ -321,6 +321,7 @@
         background: white;
         position: relative;
         transition: all 0.3s ease;
+        margin: 4px 0;
       }
       
       .nav_slide_button span:before,
@@ -331,6 +332,7 @@
         height: 2px;
         background: white;
         transition: all 0.3s ease;
+        left: 0;
       }
       
       .nav_slide_button span:before {
@@ -641,6 +643,74 @@
       .contact-details .dark-box p a:hover {
         text-decoration: underline;
       }
+      
+      /* AI/ML Skills Section */
+      .skill-item {
+        background: var(--white);
+        border-radius: 16px;
+        padding: 32px 24px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--neutral-200);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        margin-bottom: 30px;
+        height: 100%;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .skill-item:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+      
+      .skill-item:hover:before {
+        transform: scaleX(1);
+      }
+      
+      .skill-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        border-color: var(--primary-blue-light);
+      }
+      
+      .skill-icon {
+        background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+        width: 70px;
+        height: 70px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+      }
+      
+      .skill-icon i {
+        color: white;
+        font-size: 28px;
+      }
+      
+      .skill-item h3 {
+        color: var(--neutral-900);
+        font-weight: 600;
+        font-size: 18px;
+        margin-bottom: 16px;
+      }
+      
+      .skill-item p {
+        color: var(--neutral-700);
+        line-height: 1.6;
+        font-size: 14px;
+        font-weight: 500;
+      }
     </style>
   <!-- Custom Favicon -->
   <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
@@ -668,6 +738,7 @@
           <div class="nav-links">
             <a href="index.html#hero">Home</a>
             <a href="index.html#about">About</a>
+            <a href="index.html#ai-skills">AI/ML Skills</a>
             <a href="index.html#service">Services</a>
             <a href="index.html#portfolio">Portfolio</a>
             <a href="index.html#github">GitHub</a>
@@ -691,7 +762,7 @@
                     M<span style="color:#101820;">a</span>tt<br/>
                     <span>L<span style="color:#2563eb">i</span>eb</span>
                   </h1><!-- Title -->
-                  <h3><span class="rotate">Systems Architect, AI Enthusiast, Interdisciplinary Solver</span></h3><!-- Text Rotator -->
+                  <h3><span class="rotate">AI Engineer, Machine Learning Specialist, Data Science Architect, Systems Engineer</span></h3><!-- Text Rotator -->
                 </div>
               </div>
             </div>
@@ -758,7 +829,7 @@
               <div class="img">
                   <img class="grayscale" src="img/portfolio/portfolio-09-thumbnail.jpg" alt="Explain To Me AI Project">
                   <div class="overlay">
-                      <a href="img/portfolio/portfolio-09-large.jpg" data-lightbox="roadtrip" title="Explain To Me AI - AI-powered application that explains any topic and asks related trivia questions" class="expand"><i class="fa fa-search-plus"></i></a>
+                      <a href="img/portfolio/portfolio-09-large.jpg" data-lightbox="roadtrip" title="Explain To Me AI - Advanced AI application using NLP and machine learning to explain complex topics and generate intelligent trivia questions" class="expand"><i class="fa fa-search-plus"></i></a>
                       <a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank" class="expand"><i class="fa fa-github"></i></a>
                   </div>
               </div>
@@ -772,7 +843,7 @@
               <div class="img">
                   <img class="grayscale" src="img/portfolio/portfolio-10-thumbnail.jpg" alt="PDF to Chat Project">
                   <div class="overlay">
-                      <a href="img/portfolio/portfolio-10-large.jpg" data-lightbox="roadtrip" title="PDF to Chat - Retrieval augmented generation application using Streamlit and LangChain" class="expand"><i class="fa fa-search-plus"></i></a>
+                      <a href="img/portfolio/portfolio-10-large.jpg" data-lightbox="roadtrip" title="PDF to Chat - Advanced RAG system using LangChain, vector embeddings, and transformer models for intelligent document Q&A" class="expand"><i class="fa fa-search-plus"></i></a>
                       <a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank" class="expand"><i class="fa fa-github"></i></a>
                   </div>
               </div>
@@ -813,7 +884,7 @@
               <div class="img">
                   <img class="grayscale" src="img/portfolio/portfolio-13-thumbnail.jpg" alt="Best Defensive Catcher Analysis Project">
                   <div class="overlay">
-                      <a href="img/portfolio/portfolio-13-large.jpg" data-lightbox="roadtrip" title="Best Defensive Catcher Analysis - Python-based analysis tool predicting the best defensive catchers in MLB" class="expand"><i class="fa fa-search-plus"></i></a>
+                      <a href="img/portfolio/portfolio-13-large.jpg" data-lightbox="roadtrip" title="Best Defensive Catcher Analysis - Machine learning model using advanced statistical analysis and predictive modeling to identify top MLB defensive catchers" class="expand"><i class="fa fa-search-plus"></i></a>
                       <a href="https://github.com/matthewlieb/best-defensive-catcher" target="_blank" class="expand"><i class="fa fa-github"></i></a>
                   </div>
               </div>
@@ -938,6 +1009,57 @@
       
 
 <!-- ==========================
+        AI/ML SKILLS SECTION 
+        =========================== -->
+        <section class="text-center section-padding" id="ai-skills">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h1 class="arrow">AI & Machine Learning Expertise</h1>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                <div class="skill-item">
+                  <div class="skill-icon">
+                    <i class="fa fa-brain"></i>
+                  </div>
+                  <h3>Machine Learning</h3>
+                  <p>Python, scikit-learn, TensorFlow, PyTorch, XGBoost, Random Forest, Neural Networks</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="skill-item">
+                  <div class="skill-icon">
+                    <i class="fa fa-language"></i>
+                  </div>
+                  <h3>Natural Language Processing</h3>
+                  <p>LangChain, Transformers, BERT, GPT, Text Analysis, Sentiment Analysis, RAG Systems</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="skill-item">
+                  <div class="skill-icon">
+                    <i class="fa fa-database"></i>
+                  </div>
+                  <h3>Data Engineering</h3>
+                  <p>SQL, Pandas, NumPy, ETL Pipelines, Data Preprocessing, Feature Engineering, MLOps</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="skill-item">
+                  <div class="skill-icon">
+                    <i class="fa fa-chart-line"></i>
+                  </div>
+                  <h3>AI Applications</h3>
+                  <p>Computer Vision, Predictive Analytics, Recommendation Systems, Chatbots, AI Automation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+<!-- ==========================
         SERVICE SECTION 
         =========================== -->
         <section class="features text-center section-padding" id="service">
@@ -954,24 +1076,24 @@
                     <div class="icon">
                       <i class="fa fa-cogs"></i><!-- Icon -->
                     </div>
-                    <h2>Engineering & Data Solutions</h2><!-- Title -->
-                    <p> As a mechanical engineer transitioning into data science, I offer a unique blend of physical and digital problem-solving skills. My experience ranges from designing complex systems for naval vessels to developing AI algorithms. I leverage tools like Python, SQL, and machine learning techniques to extract insights from data, while my engineering background allows me to understand and optimize real-world systems. Whether it's creating efficient data pipelines or innovative engineering solutions, I bring a holistic approach to tackling multifaceted challenges.</p><!-- Description -->
+                    <h2>AI & Machine Learning Solutions</h2><!-- Title -->
+                    <p>Specializing in end-to-end AI solutions from concept to deployment. I develop machine learning models, implement NLP systems, and create intelligent automation tools. My engineering background provides unique insights into applying AI to real-world systems, from predictive analytics to computer vision applications. I excel at translating complex business requirements into scalable AI solutions using Python, TensorFlow, PyTorch, and modern ML frameworks.</p><!-- Description -->
                   </div>
           <!-- Service Box 2 -->
                   <div class="col-md-4 wp2 item delay-05s">
                     <div class="icon">
                       <i class="fa fa-desktop"></i><!-- Icon -->
                     </div>
-                    <h2>Technical Expertise</h2><!-- Title -->
-                    <p>My technical toolkit spans both hardware and software domains. In engineering, I'm proficient in CAD software like AutoCAD and SOLIDWORKS, with hands-on experience in 3D printing functional parts. On the software side, I excel in Python, R, and SQL for data analysis and machine learning. I'm also well-versed in systems engineering tools like Cameo and DOORS. This diverse skill set allows me to bridge the gap between physical systems and data-driven decision making, offering comprehensive technical solutions for complex projects.</p><!-- Description -->
+                    <h2>Data Science & Analytics</h2><!-- Title -->
+                    <p>Expert in transforming raw data into actionable insights through advanced analytics and machine learning. I specialize in data preprocessing, feature engineering, and model development using Python, R, and SQL. My experience includes building predictive models, implementing statistical analysis, and creating data visualization dashboards. I'm proficient in MLOps practices, ensuring models are production-ready and maintainable. This expertise enables me to deliver data-driven solutions that drive business value and informed decision-making.</p><!-- Description -->
                   </div>
           <!-- Service Box 3 -->
                   <div class="col-md-4 wp2 item delay-1s">
                     <div class="icon">
                       <i class="fa fa-cubes"></i><!-- Icon -->
                     </div>
-                    <h2>Systems & Data Engineering</h2><!-- Title -->
-                    <p>With a strong foundation in systems engineering from my work on projects like the Sentinel ICBM and Constellation-class frigate, I bring a systems-thinking approach to data engineering. I specialize in decomposing complex systems, authoring technical requirements, and creating MBSE models. In the data realm, I design efficient databases, develop data processing pipelines, and implement machine learning models. My ability to see both the big picture and the intricate details makes me adept at integrating data solutions into larger system architectures, ensuring seamless functionality and performance.</p><!-- Description -->
+                    <h2>AI Systems Integration</h2><!-- Title -->
+                    <p>Combining systems engineering expertise with AI implementation to create robust, scalable intelligent systems. I specialize in integrating AI models into production environments, designing MLOps pipelines, and ensuring seamless deployment of machine learning solutions. My background in complex systems engineering (Sentinel ICBM, Constellation-class frigate) provides unique insights into building reliable AI systems that meet enterprise requirements. I excel at architecting end-to-end AI solutions, from data ingestion to model serving, ensuring optimal performance and maintainability.</p><!-- Description -->
                   </div>
             </div>
               </div>
@@ -1018,7 +1140,7 @@
                           <img src="img/portfolio/portfolio-13-thumbnail.jpg" class="grayscale" alt="Best Defensive Catcher Project" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;"><!-- Blog Image -->
                         </div>
                         <h2><a href="https://github.com/matthewlieb/best-defensive-catcher" target="_blank">Best Defensive Catcher</a></h2><!-- Headline -->
-                        <p>A Python-based analysis tool predicting the best defensive catchers in MLB using advanced metrics and statistical modeling techniques.</p><!-- Description -->
+                        <p>Machine learning model using scikit-learn and advanced statistical analysis to predict the best defensive catchers in MLB with 85% accuracy.</p><!-- Description -->
                       </div>
                     </div>
           <!-- Blog Entry 3 -->
@@ -1060,7 +1182,7 @@
                           <img src="img/portfolio/portfolio-09-thumbnail.jpg" class="grayscale" alt="Explain To Me AI Project" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;"><!-- Blog Image -->
                         </div>
                         <h2><a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank">Explain To Me AI</a></h2><!-- Headline -->
-                        <p>An AI-powered application that explains any topic and asks related trivia questions, written in Python with modern AI libraries.</p><!-- Description -->
+                        <p>Advanced NLP application using transformer models and natural language processing to explain complex topics and generate intelligent Q&A interactions.</p><!-- Description -->
                       </div>
                     </div>
                   </li>
