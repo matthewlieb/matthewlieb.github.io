@@ -441,14 +441,26 @@
         box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
         border: 1px solid var(--neutral-200);
         transition: all 0.3s ease;
-        margin: 0 5px 30px 5px;
+        margin-bottom: 30px;
         height: 100%;
+        text-align: center;
       }
       
       .features .services .col-md-4 {
         margin-bottom: 0;
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      
+      /* Ensure proper 3-wide layout */
+      .features .row {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      
+      .features .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
       }
       
       .features .services .item:hover {
@@ -849,8 +861,6 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-md-12">
-          <div class="services">
           <!-- Service Box 1 -->
                   <div class="col-md-4 wp2 item">
                     <div class="icon">
@@ -875,8 +885,7 @@
                     <h2>Systems & Data Engineering</h2><!-- Title -->
                     <p>With a strong foundation in systems engineering from my work on projects like the Sentinel ICBM and Constellation-class frigate, I bring a systems-thinking approach to data engineering. I specialize in decomposing complex systems, authoring technical requirements, and creating MBSE models. In the data realm, I design efficient databases, develop data processing pipelines, and implement machine learning models. My ability to see both the big picture and the intricate details makes me adept at integrating data solutions into larger system architectures, ensuring seamless functionality and performance.</p><!-- Description -->
                   </div>
-          </div>
-                  <div class="clearfix"></div>
+            </div>
               </div>
             </div>
           </div>
