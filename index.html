@@ -1,1366 +1,393 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Website Title -->
-    <title>Matt Lieb - Portfolio</title>
-    <!-- Bootstrap -->
-    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font-Awesome -->
-    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <!-- Lightbox -->
-  <link href="assets/lightbox/css/lightbox.css" rel="stylesheet">
-    <!-- Text Rotator-->
-  <link href="assets/textrotator/simpletextrotator.css" rel="stylesheet">
-  <!-- FlexSlider -->
-    <link href="assets/flexslider/flexslider.css" rel="stylesheet">
-  <!-- Theme Style -->
-    <link href="css/style.css" rel="stylesheet">
-  <!-- Animations -->
-    <link href="css/animate.css" rel="stylesheet">
-  <!-- Custom Modern Styles -->
-    <style>
-      /* Elegant Color Palette */
-      :root {
-        --primary-blue: #2563eb;
-        --primary-blue-light: #3b82f6;
-        --primary-blue-dark: #1d4ed8;
-        --accent-teal: #06b6d4;
-        --accent-teal-light: #22d3ee;
-        --neutral-900: #111827;
-        --neutral-800: #1f2937;
-        --neutral-700: #374151;
-        --neutral-600: #4b5563;
-        --neutral-500: #6b7280;
-        --neutral-400: #9ca3af;
-        --neutral-300: #d1d5db;
-        --neutral-200: #e5e7eb;
-        --neutral-100: #f3f4f6;
-        --neutral-50: #f9fafb;
-        --white: #ffffff;
-      }
-      
-      /* Modern Portfolio Enhancements */
-      .portfolio-item {
-        position: relative;
-        margin-bottom: 30px;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: var(--white);
-        border: 1px solid var(--neutral-200);
-      }
-      
-      .portfolio-item:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        border-color: var(--primary-blue-light);
-      }
-      
-      .portfolio-item .img {
-        position: relative;
-        overflow: hidden;
-        border-radius: 16px;
-      }
-      
-      .portfolio-item .img img {
-        transition: all 0.3s ease;
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-      }
-      
-      .portfolio-item:hover .img img {
-        transform: scale(1.02);
-      }
-      
-      .portfolio-item .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(6, 182, 212, 0.9));
-        opacity: 0;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        border-radius: 16px;
-      }
-      
-      .portfolio-item:hover .overlay {
-        opacity: 1;
-      }
-      
-      .portfolio-item .overlay .expand {
-        width: 44px;
-        height: 44px;
-        background: rgba(255, 255, 255, 0.15);
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 16px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(10px);
-      }
-      
-      .portfolio-item .overlay .expand:hover {
-        background: rgba(255, 255, 255, 0.25);
-        border-color: rgba(255, 255, 255, 0.5);
-        transform: scale(1.1);
-      }
-      
-      /* Modern Section Headers */
-      .arrow {
-        position: relative;
-        margin-bottom: 60px;
-      }
-      
-      .arrow:after {
-        content: '';
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(90deg, var(--primary-blue), var(--accent-teal));
-        border-radius: 2px;
-      }
-      
-      /* Enhanced GitHub Section */
-      #github {
-        background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
-        padding: 80px 0;
-      }
-      
-      #github .outline-btn {
-        background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
-        color: white;
-        border: none;
-        padding: 12px 32px;
-        border-radius: 8px;
-        font-weight: 500;
-        text-transform: none;
-        letter-spacing: 0.5px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
-        font-size: 14px;
-      }
-      
-      #github .outline-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
-        color: white;
-        text-decoration: none;
-      }
-      
-      /* Modern Blog Section */
-      .blog-item {
-        background: var(--white);
-        border-radius: 12px;
-        padding: 24px;
-        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
-        transition: all 0.3s ease;
-        margin-bottom: 30px;
-        border: 1px solid var(--neutral-200);
-        margin-left: 10px;
-        margin-right: 10px;
-        text-align: center;
-      }
-      
-      .blog-item:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
-        border-color: var(--primary-blue-light);
-      }
-      
-      .blog-item .img {
-        text-align: center;
-        margin-bottom: 16px;
-        overflow: hidden;
-        border-radius: 8px;
-      }
-      
-      .blog-item .img img {
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-      
-      .blog-item:hover .img img {
-        transform: scale(1.05);
-      }
-      
-      .blog-item h2 a {
-        color: var(--neutral-900);
-        font-weight: 600;
-        font-size: 18px;
-        text-decoration: none;
-        transition: color 0.3s ease;
-        text-align: center;
-        display: block;
-        margin-bottom: 12px;
-      }
-      
-      .blog-item h2 a:hover {
-        color: var(--primary-blue);
-      }
-      
-      .blog-item p {
-        color: var(--neutral-900);
-        line-height: 1.6;
-        margin-top: 12px;
-        font-size: 14px;
-        font-weight: 500;
-        text-align: left;
-      }
-      
-      /* Enhanced Navigation */
-      .menu .icon-list a {
-        transition: all 0.3s ease;
-        border-radius: 8px;
-        margin: 5px 0;
-      }
-      
-      .menu .icon-list a:hover {
-        background: rgba(37, 99, 235, 0.1);
-        transform: translateX(5px);
-      }
-      
-      /* Modern Hero Section */
-      /* Hidden Navigation Menu */
-      .hidden-nav {
-        position: fixed;
-        top: 0;
-        left: -300px;
-        width: 300px;
-        height: 100vh;
-        background: var(--white);
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-        transition: left 0.3s ease;
-        z-index: 1000;
-        padding: 60px 20px 20px;
-      }
-      
-      .hidden-nav.show {
-        left: 0;
-      }
-      
-      .hidden-nav .nav-links {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      
-      .hidden-nav .nav-links a {
-        color: var(--neutral-900);
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: 500;
-        padding: 10px 0;
-        border-bottom: 1px solid var(--neutral-200);
-        transition: color 0.3s ease;
-      }
-      
-      .hidden-nav .nav-links a:hover {
-        color: var(--primary-blue);
-      }
-      
-      /* Hero Section Styling */
-      .hero {
-        padding-top: 60px !important;
-        padding-bottom: 60px !important;
-        background: #FBFBFB;
-        margin-top: 0;
-        min-height: auto;
-        display: flex;
-        align-items: center;
-      }
-      
-      /* Hamburger Menu Button Styling */
-      .nav_slide_button {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 1001;
-        width: 50px;
-        height: 50px;
-        background: var(--primary-blue);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-        transition: all 0.3s ease;
-        text-decoration: none;
-      }
-      
-      .nav_slide_button:hover {
-        background: var(--primary-blue-dark);
-        transform: scale(1.1);
-        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
-      }
-      
-      .nav_slide_button span {
-        display: block;
-        width: 20px;
-        height: 2px;
-        background: white;
-        position: relative;
-        transition: all 0.3s ease;
-        margin: 4px 0;
-      }
-      
-      .nav_slide_button span:before,
-      .nav_slide_button span:after {
-        content: '';
-        position: absolute;
-        width: 20px;
-        height: 2px;
-        background: white;
-        transition: all 0.3s ease;
-        left: 0;
-      }
-      
-      .nav_slide_button span:before {
-        top: -6px;
-      }
-      
-      .nav_slide_button span:after {
-        top: 6px;
-      }
-      
-      .navicon {
-        position: relative;
-        z-index: 1002;
-      }
-      
-      .hero h1 {
-        font-size: 4.5rem;
-        font-weight: 900;
-        letter-spacing: -2px;
-        line-height: 0.9;
-        color: var(--neutral-900);
-        margin-top: 0;
-        margin-bottom: 20px;
-      }
-      
-      .hero h3 {
-        font-size: 1.5rem;
-        font-weight: 300;
-        color: var(--neutral-600);
-        margin-top: 0;
-        margin-bottom: 40px;
-      }
-      
-      /* Fixed SEE MORE Button */
-      .scrollto {
-        background: var(--primary-blue);
-        color: white;
-        padding: 12px 24px;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 500;
-        text-transform: none;
-        letter-spacing: 0.5px;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
-        display: inline-block;
-        font-size: 14px;
-        border: none;
-      }
-      
-      .scrollto:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
-        color: white;
-        text-decoration: none;
-        background: var(--primary-blue-dark);
-      }
-      
-      /* Fix Behind the Code Section Layout */
-      .container-fluid .row {
-        display: flex;
-        align-items: center;
-        min-height: 400px;
-      }
-      
-      .container-fluid .row .col-md-6 {
-        padding: 40px;
-      }
-      
-      .container-fluid .row .col-md-6:first-child {
-        order: 1;
-      }
-      
-      .container-fluid .row .col-md-6:last-child {
-        order: 2;
-      }
-      
-      .about-image {
-        height: 300px;
-        background-size: cover;
-        background-position: center;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      }
-      
-      .about-text h6 {
-        color: var(--neutral-900);
-        font-weight: 600;
-        font-size: 18px;
-        margin-bottom: 16px;
-      }
-      
-      .about-text p {
-        color: var(--neutral-900);
-        line-height: 1.7;
-        font-size: 15px;
-        font-weight: 500;
-      }
-      
-      /* Make text white for sections with dark backgrounds */
-      .color-bg .about-text h6 {
-        color: white !important;
-        font-weight: 600;
-        font-size: 18px;
-        margin-bottom: 16px;
-      }
-      
-      .color-bg .about-text p {
-        color: white !important;
-        line-height: 1.7;
-        font-size: 15px;
-        font-weight: 500;
-      }
-      
-      /* Also make sure any other text in dark sections is white */
-      .color-bg .about-text {
-        color: white !important;
-      }
-      
-      .weight-outline-btn {
-        background: transparent;
-        color: var(--primary-blue);
-        border: 2px solid var(--primary-blue);
-        padding: 8px 20px;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        display: inline-block;
-        margin-top: 16px;
-      }
-      
-      .weight-outline-btn:hover {
-        background: var(--primary-blue);
-        color: white;
-        text-decoration: none;
-      }
-      
-      /* Make buttons white on dark backgrounds */
-      .color-bg .weight-outline-btn {
-        color: white !important;
-        border-color: white !important;
-      }
-      
-      .color-bg .weight-outline-btn:hover {
-        background: white !important;
-        color: var(--primary-blue) !important;
-      }
-      
-      /* Responsive Improvements */
-      @media (max-width: 768px) {
-        .hero h1 {
-          font-size: 3rem;
-        }
-        
-        .portfolio-item .img img {
-          height: 200px;
-        }
-        
-        .blog-item {
-          padding: 20px;
-        }
-        
-        .container-fluid .row {
-          flex-direction: column;
-        }
-        
-        .container-fluid .row .col-md-6:first-child {
-          order: 2;
-        }
-        
-        .container-fluid .row .col-md-6:last-child {
-          order: 1;
-        }
-      }
-      
-      /* Smooth Animations */
-      * {
-        scroll-behavior: smooth;
-      }
-      
-      /* Service Section Improvements */
-      .features .services .item {
-        background: var(--white);
-        border-radius: 16px;
-        padding: 40px 30px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        border: 1px solid var(--neutral-200);
-        transition: all 0.4s ease;
-        margin-bottom: 30px;
-        height: 100%;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .features .services .item:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
-        transform: scaleX(0);
-        transition: transform 0.4s ease;
-      }
-      
-      .features .services .item:hover:before {
-        transform: scaleX(1);
-      }
-      
-      .features .services .col-md-4 {
-        margin-bottom: 0;
-        padding-left: 15px;
-        padding-right: 15px;
-      }
-      
-      /* Ensure proper 3-wide layout */
-      .features .row {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      
-      .features .col-md-4 {
-        flex: 0 0 33.333333%;
-        max-width: 33.333333%;
-      }
-      
-      .features .services .item:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        border-color: var(--primary-blue-light);
-      }
-      
-      .features .services .item .icon {
-        background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
-        width: 60px;
-        height: 60px;
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-      }
-      
-      .features .services .item .icon i {
-        color: white;
-        font-size: 24px;
-      }
-      
-      .features .services .item h2 {
-        color: var(--neutral-900);
-        font-weight: 600;
-        font-size: 18px;
-        margin-bottom: 12px;
-      }
-      
-      .features .services .item p {
-        color: var(--neutral-700);
-        line-height: 1.7;
-        font-size: 15px;
-        font-weight: 400;
-      }
-      
-      /* Contact Section Improvements */
-      .contact-details .dark-box {
-        background: var(--white);
-        border: 1px solid var(--neutral-200);
-        border-radius: 12px;
-        padding: 24px;
-        text-align: center;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
-        margin-bottom: 20px;
-      }
-      
-      .contact-details .dark-box:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-        border-color: var(--primary-blue-light);
-      }
-      
-      .contact-details .dark-box h2 {
-        color: var(--neutral-900);
-        font-weight: 600;
-        font-size: 16px;
-        margin-bottom: 12px;
-      }
-      
-      .contact-details .dark-box h2 i {
-        color: var(--primary-blue);
-        margin-right: 8px;
-      }
-      
-      .contact-details .dark-box p {
-        color: var(--neutral-700);
-        font-size: 14px;
-        margin: 0;
-      }
-      
-      .contact-details .dark-box p a {
-        color: var(--primary-blue);
-        text-decoration: none;
-      }
-      
-      .contact-details .dark-box p a:hover {
-        text-decoration: underline;
-      }
-      
-      /* AI/ML Skills Section */
-      .skill-item {
-        background: var(--white);
-        border-radius: 16px;
-        padding: 32px 24px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        border: 1px solid var(--neutral-200);
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        margin-bottom: 30px;
-        height: 100%;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .skill-item:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
-        transform: scaleX(0);
-        transition: transform 0.4s ease;
-      }
-      
-      .skill-item:hover:before {
-        transform: scaleX(1);
-      }
-      
-      .skill-item:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        border-color: var(--primary-blue-light);
-      }
-      
-      .skill-icon {
-        background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
-        width: 70px;
-        height: 70px;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
-      }
-      
-      .skill-icon i {
-        color: white;
-        font-size: 28px;
-      }
-      
-      .skill-item h3 {
-        color: var(--neutral-900);
-        font-weight: 600;
-        font-size: 18px;
-        margin-bottom: 16px;
-      }
-      
-      .skill-item p {
-        color: var(--neutral-700);
-        line-height: 1.6;
-        font-size: 14px;
-        font-weight: 500;
-      }
-    </style>
-  <!-- Custom Favicon -->
-  <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="assets/html5shiv/html5shiv.js"></script>
-    <script src="assets/respond/respond.min.js"></script>
-    <![endif]-->
-  </head>
-    <body id="top">
-
-
-      <!-- ****************************** Preloader ************************** -->
-      <div id="preloader"></div>
-
-
-
-
-      <!-- ==========================
-        HERO SECTION 
-        =========================== -->
-        <!-- Hidden Navigation Menu -->
-        <nav class="hidden-nav" id="hidden-nav">
-          <div class="nav-links">
-            <a href="index.html#hero">Home</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#ai-skills">AI/ML Skills</a>
-            <a href="index.html#service">Services</a>
-            <a href="index.html#portfolio">Portfolio</a>
-            <a href="index.html#github">GitHub</a>
-            <a href="index.html#blog">Blog</a>
-            <a href="index.html#contact">Contact</a>
-          </div>
-        </nav>
-        
-          <section class="hero" id="hero">
-            <div class="container">
-        <!-- Slider Button (don't edit!)-->
-              <div class="row">
-                <div class="col-md-12 text-right navicon">
-                  <a id="nav-toggle" class="nav_slide_button" href="index.html#"><span></span></a>
-                </div>
-              </div>
-        <!-- HEADER HEADLINE -->
-              <div class="row">
-                <div class="col-md-8 col-md-offset-1 inner">
-                  <h1>
-                    M<span style="color:#101820;">a</span>tt<br/>
-                    <span>L<span style="color:#2563eb">i</span>eb</span>
-                  </h1><!-- Title -->
-                  <h3><span class="rotate">AI Engineer, Machine Learning Specialist, Data Science Architect, Systems Engineer</span></h3><!-- Text Rotator -->
-                </div>
-              </div>
-            </div>
-          </section>
-      <!-- Hero Section End -->
-    <!-- ==========================
-        HERO SECTION END  
-        =========================== -->
-    
-    
-    
-    
-    <!-- ==========================
-        ABOUT SECTION  
-        =========================== -->
-        <section class="intro text-center section-padding color-bg" id="about">
-          <div class="container">
-        <!-- WELCOME TEXT -->
-            <div class="row">
-              <div class="col-md-8 col-md-offset-2 wp1">
-                <h1 class="arrow"> <span>About</span> Me</h1><!-- Headline -->
-        <!-- about / welcome text -->
-                <p>As a Data Science MS candidate at Georgia Tech with a Mechanical Engineering background from Lehigh, I blend analytical prowess with hands-on engineering experience. My journey spans from designing naval vessels to developing AI algorithms, showcasing my versatility in both physical and digital realms. With expertise in Python, machine learning, and systems engineering—honed through projects like the Sentinel ICBM—I'm driven to solve complex challenges at the intersection of AI and engineering. Holding a Secret/SAP clearance, I bring a unique perspective to sensitive, high-impact projects. My passion lies in leveraging data science to optimize systems and drive innovation, bridging the gap between traditional engineering and cutting-edge AI solutions.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-    <!-- ==========================
-        PORTFOLIO SECTION
-    =========================== -->
-    <section class="swag text-center" id="portfolio">
-      <div class="container">
-    <!-- Headline -->
-        <div class="row">
-          <h1 class="arrow">
-            Recent <span>Projects</span>
-          </h1>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Matthew Lieb - AI Engineer, Machine Learning Specialist, and Data Science Architect. Systems Engineer at Northrop Grumman with expertise in LLMs, RAG, and applied ML.">
+  <title>Matthew Lieb | AI Engineer & Data Scientist</title>
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Modern Typography - MIT Tech Review inspired -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Minimal CSS - inline critical styles -->
+  <link href="css/style.css" rel="stylesheet">
+  
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="main-nav" id="main-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="#hero">Matthew Lieb</a>
       </div>
-    </section>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
     <div class="container">
-      <div class="row row-offset-0">
-       
-      <!-- PORTFOLIO ITEM 1 -->
-      <div class="col-md-3 col-sm-6">
-          <div class="portfolio-item">
-              <div class="img">
-                  <img class="grayscale" src="img/portfolio/portfolio-16-thumbnail.jpg" alt="Philly Sports News Project">
-                  <div class="overlay">
-                      <a href="img/portfolio/portfolio-16-large.jpg" data-lightbox="roadtrip" title="Philly Sports News - Content aggregator web app for Philadelphia sports news" class="expand"><i class="fa fa-search-plus"></i></a>
-                      <a href="https://github.com/matthewlieb/philly-sports-news" target="_blank" class="expand"><i class="fa fa-github"></i></a>
-                  </div>
-              </div>
-          </div>
-      </div>
-    <!-- PORTFOLIO ITEM END -->
-
-    <!-- PORTFOLIO ITEM 2 -->
-      <div class="col-md-3 col-sm-6">
-          <div class="portfolio-item">
-              <div class="img">
-                  <img class="grayscale" src="img/portfolio/portfolio-09-thumbnail.jpg" alt="Explain To Me AI Project">
-                  <div class="overlay">
-                      <a href="img/portfolio/portfolio-09-large.jpg" data-lightbox="roadtrip" title="Explain To Me AI - Advanced AI application using NLP and machine learning to explain complex topics and generate intelligent trivia questions" class="expand"><i class="fa fa-search-plus"></i></a>
-                      <a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank" class="expand"><i class="fa fa-github"></i></a>
-                  </div>
-              </div>
-          </div>
-      </div>
-    <!-- PORTFOLIO ITEM END -->
-        
-  <!-- PORTFOLIO ITEM 3 -->
-      <div class="col-md-3 col-sm-6">
-          <div class="portfolio-item">
-              <div class="img">
-                  <img class="grayscale" src="img/portfolio/portfolio-10-thumbnail.jpg" alt="PDF to Chat Project">
-                  <div class="overlay">
-                      <a href="img/portfolio/portfolio-10-large.jpg" data-lightbox="roadtrip" title="PDF to Chat - Advanced RAG system using LangChain, vector embeddings, and transformer models for intelligent document Q&A" class="expand"><i class="fa fa-search-plus"></i></a>
-                      <a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank" class="expand"><i class="fa fa-github"></i></a>
-                  </div>
-              </div>
-          </div>
-      </div>
-    <!-- PORTFOLIO ITEM END -->
-        
-  <!-- PORTFOLIO ITEM 4 -->
-      <div class="col-md-3 col-sm-6 ">
-          <div class="portfolio-item">
-              <div class="img">
-                  <img class="grayscale" src="img/portfolio/portfolio-11-thumbnail.jpg" alt="Delete Duplicates Project">
-                  <div class="overlay">
-                      <a href="img/portfolio/portfolio-11-large.jpg" data-lightbox="roadtrip" title="Delete Duplicates - Python tkinter application to find and delete duplicate files" class="expand"><i class="fa fa-search-plus"></i></a>
-                      <a href="https://github.com/matthewlieb/delete-duplicates" target="_blank" class="expand"><i class="fa fa-github"></i></a>
-                  </div>
-              </div>
-          </div>
-      </div>
-    <!-- PORTFOLIO ITEM END -->
-             
-      <!-- PORTFOLIO ITEM 5 -->
-      <div class="col-md-3 col-sm-6 ">
-          <div class="portfolio-item">
-              <div class="img">
-                  <img class="grayscale" src="img/portfolio/portfolio-12-thumbnail.jpg" alt="3D Printing Projects">
-                  <div class="overlay">
-                      <a href="img/portfolio/portfolio-12-large.jpg" data-lightbox="roadtrip" title="3D Printing Projects - Custom 3D printed designs and functional parts" class="expand"><i class="fa fa-search-plus"></i></a>
-                  </div>
-              </div>
-          </div>
-      </div>
-    <!-- PORTFOLIO ITEM END -->
-
-    <!-- PORTFOLIO ITEM 6 -->
-      <div class="col-md-3 col-sm-6">
-          <div class="portfolio-item">
-              <div class="img">
-                  <img class="grayscale" src="img/portfolio/portfolio-13-thumbnail.jpg" alt="Best Defensive Catcher Analysis Project">
-                  <div class="overlay">
-                      <a href="img/portfolio/portfolio-13-large.jpg" data-lightbox="roadtrip" title="Best Defensive Catcher Analysis - Machine learning model using advanced statistical analysis and predictive modeling to identify top MLB defensive catchers" class="expand"><i class="fa fa-search-plus"></i></a>
-                      <a href="https://github.com/matthewlieb/best-defensive-catcher" target="_blank" class="expand"><i class="fa fa-github"></i></a>
-                  </div>
-              </div>
-          </div>
-      </div>
-    <!-- PORTFOLIO ITEM END -->
-        
-  <!-- PORTFOLIO ITEM 7 -->
-      <div class="col-md-3 col-sm-6">
-          <div class="portfolio-item">
-              <div class="img">
-                  <img class="grayscale" src="img/portfolio/portfolio-14-thumbnail.jpg" alt="Movie Database Project">
-                  <div class="overlay">
-                      <a href="img/portfolio/portfolio-14-large.jpg" data-lightbox="roadtrip" title="Movie Database - CRUD movie database application developed with Python and SQLite" class="expand"><i class="fa fa-search-plus"></i></a>
-                      <a href="https://github.com/matthewlieb/movie-db" target="_blank" class="expand"><i class="fa fa-github"></i></a>
-                  </div>
-              </div>
-          </div>
-      </div>
-    <!-- PORTFOLIO ITEM END -->
-        
-  <!-- PORTFOLIO ITEM 8 -->
-      <div class="col-md-3 col-sm-6">
-          <div class="portfolio-item">
-              <div class="img">
-                  <img class="grayscale" src="img/portfolio/portfolio-15-thumbnail.jpg" alt="Bendabill Hat Project">
-                  <div class="overlay">
-                      <a href="img/portfolio/portfolio-15.jpg" data-lightbox="roadtrip" title="Bendabill Hat - Hat with shape retaining bill design" class="expand"><i class="fa fa-search-plus"></i></a>
-                  </div>
-              </div>
-          </div>
-      </div>
-    <!-- PORTFOLIO ITEM END -->
-    </div><!--/row-->
-    
-    <!-- TEMPLATE FOR ADDING NEW PORTFOLIO ITEMS -->
-    <!-- 
-    <div class="col-md-3 col-sm-6">
-        <div class="portfolio-item">
-            <div class="img">
-                <img class="grayscale" src="img/portfolio/portfolio-XX-thumbnail.jpg" alt="Project Name">
-                <div class="overlay">
-                    <a href="img/portfolio/portfolio-XX-large.jpg" data-lightbox="roadtrip" title="Project Name - Description" class="expand"><i class="fa fa-search-plus"></i></a>
-                    <a href="https://github.com/matthewlieb/project-repo" target="_blank" class="expand"><i class="fa fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
-    
-  </div><!--/.container-->
-<!-- ==========================
-    PORTFOLIO SECTION END
-    =========================== -->
-
-<!-- ==========================
-    GITHUB SECTION
-    =========================== -->
-<section class="swag text-center" id="github">
-  <div class="container">
-    <!-- Headline -->
-    <div class="row">
-      <h1 class="arrow">
-        <span>GitHub</span> Profile
-      </h1>
-    </div>
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <p>Explore my complete collection of projects, contributions, and code repositories on GitHub. From AI applications to data analysis tools, each project showcases different aspects of my technical skills and problem-solving approach.</p>
-        <br>
-        <a href="https://github.com/matthewlieb" target="_blank" class="outline-btn">
-          <i class="fa fa-github"></i> View My GitHub Profile
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ==========================
-    GITHUB SECTION END
-    =========================== -->
-
-
-    <div class="container-fluid">
-        <!-- About 1 -->
-      <div class="row color-bg">
-        <div class="col-md-6 nopadding features-intro-img">
-          <div class="about-image" style="background-image:url(img/about1.png)"></div><!-- about image 1 -->
-        </div>
-        <div class="col-md-6 about-text">
-          <h6>Professional Journey</h6><!-- headline-->
-          <p>My career has evolved from mechanical engineering to data science, bridging physical and digital realms. After earning my B.S. in Mechanical Engineering from Lehigh, I tackled complex projects at Northrop Grumman and Gibbs & Cox, including the Sentinel ICBM and Constellation-class frigate. These experiences ignited my passion for data, leading me to pursue a Master's in Data Science & Analytics at Georgia Tech. I now combine engineering expertise with data science, offering a unique approach to multifaceted technical challenges.
-          </p><br><!-- About Text 1 -->
-          <a href="index.html#team" class="weight-outline-btn">Read more</a><!-- read more button  -->      
-        </div>
-      </div>
-      <!-- About 2 -->
-      <div class="row">
-        <div class="col-md-6 about-text">
-          <h6>Technical Passions</h6><!-- Headline -->
-          <p>Innovation and problem-solving drive my professional identity. I excel in optimizing systems and extracting insights from data, using tools ranging from CAD software to Python and R for machine learning. My enthusiasm lies at the intersection of physical systems and data science, where I apply MBSE tools like Cameo alongside AI techniques. This holistic approach allows me to navigate both physical constraints and data-driven opportunities, creating comprehensive solutions to complex problems.</p><br><!-- About Text 2 -->
-          <a href="index.html#team" class="weight-outline-btn">Read more</a>  <!-- read more button  -->        
-        </div>
-        <div class="col-md-6 nopadding features-intro-img">
-          <div class="about-image" style="background-image:url(img/about2.png)"></div><!-- about image 2 -->
-        </div>
-      </div>
-      <!-- About 3 -->
-      <div class="row color-bg">
-        <div class="col-md-6 nopadding features-intro-img">
-          <div class="about-image" style="background-image:url(img/about3.png)"></div><!-- about image 3 -->
-        </div>
-        <div class="col-md-6 about-text">
-          <h6>Beyond the Code</h6><!-- Headline-->
-          <p>Outside work, I'm an avid outdoors enthusiast, enjoying skiing, kayaking, and mountain biking. These activities hone my real-world problem-solving skills. At home, I explore 3D printing, merging digital designs with practical applications. I'm also a passionate Philadelphia sports fan. This blend of adventure, creativity, and team spirit mirrors my work ethic: embracing challenges, innovating solutions, and collaborating effectively to achieve goals.</p><br><!-- About Text 3 -->
-          <a href="index.html#team" class="weight-outline-btn">Read more</a><!-- read more button  -->          
+      <div class="hero-content">
+        <h1 class="hero-title">Matthew Lieb</h1>
+        <p class="hero-subtitle">AI Engineer | LLM & Machine Learning Systems | Systems Engineer at Northrop Grumman</p>
+        <p class="hero-description">Building practical AI and analytics tools that scale. Currently finishing my Master's in Data Science at Georgia Tech while developing LLM applications, RAG systems, and ML-enabled tooling.</p>
+        <div class="hero-links">
+          <a href="https://github.com/matthewlieb" target="_blank" class="btn-primary">GitHub</a>
+          <a href="https://www.linkedin.com/in/matthew-lieb/" target="_blank" class="btn-secondary">LinkedIn</a>
+          <a href="#projects" class="btn-outline">View Projects</a>
         </div>
       </div>
     </div>
-    <!-- ==========================
-        ABOUT SECTION END
-        =========================== --> 
-      
+  </section>
 
-<!-- ==========================
-        AI/ML SKILLS SECTION 
-        =========================== -->
-        <section class="text-center section-padding" id="ai-skills">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <h1 class="arrow">AI & Machine Learning Expertise</h1>
-              </div>
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p class="lead">I am a Systems Engineer at Northrop Grumman and a Master's student in Data Science, graduating in May 2026. I am actively transitioning into AI and machine learning roles focused on applied ML, LLM applications, and data-driven systems.</p>
+          <p>I have spent the past several years working on complex, high-reliability programs, including the Sentinel ICBM, the Constellation-class frigate, and the Antarctic Research Vessel. My work sits at the intersection of systems engineering, software, and data, with an increasing focus on building practical AI and analytics tools that scale.</p>
+          <p>Recently, my work has included building LLM and RAG ingestion pipelines, automating workflows with Python and SQL, and developing internal tools used across teams. I enjoy problems where engineering rigor, data, and real-world constraints all matter.</p>
+          <p class="highlight">I am looking for AI, ML, or applied data science roles where I can build real systems and continue growing as an engineer.</p>
+        </div>
+        <div class="about-details">
+          <div class="detail-item">
+            <strong>Location:</strong> Salt Lake City, UT
+          </div>
+          <div class="detail-item">
+            <strong>Clearance:</strong> Secret/SAP
+          </div>
+          <div class="detail-item">
+            <strong>Education:</strong> M.S. Data Science & Analytics (Expected May 2026)
+          </div>
+          <div class="detail-item">
+            <strong>Institution:</strong> Georgia Institute of Technology
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section experience" id="experience">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+      </div>
+      <div class="experience-timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Systems Engineer</h3>
+              <span class="timeline-company">Northrop Grumman</span>
+              <span class="timeline-date">May 2023 - Present</span>
             </div>
-            <div class="row">
-              <div class="col-md-3 col-sm-6">
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <i class="fa fa-brain"></i>
-                  </div>
-                  <h3>Machine Learning</h3>
-                  <p>Python, scikit-learn, TensorFlow, PyTorch, XGBoost, Random Forest, Neural Networks</p>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <i class="fa fa-language"></i>
-                  </div>
-                  <h3>Natural Language Processing</h3>
-                  <p>LangChain, Transformers, BERT, GPT, Text Analysis, Sentiment Analysis, RAG Systems</p>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <i class="fa fa-database"></i>
-                  </div>
-                  <h3>Data Engineering</h3>
-                  <p>SQL, Pandas, NumPy, ETL Pipelines, Data Preprocessing, Feature Engineering, MLOps</p>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="skill-item">
-                  <div class="skill-icon">
-                    <i class="fa fa-chart-line"></i>
-                  </div>
-                  <h3>AI Applications</h3>
-                  <p>Computer Vision, Predictive Analytics, Recommendation Systems, Chatbots, AI Automation</p>
-                </div>
-              </div>
+            <div class="timeline-body">
+              <ul>
+                <li>Built and deployed LLM and RAG-based tools to reduce data spills, winning an internal hackathon. Stack included Python, Docker, LangFlow, Qdrant, and Azure OpenAI.</li>
+                <li>Designed ingestion pipelines for LLM applications, enabling structured retrieval across hundreds of technical documents.</li>
+                <li>Authored an internal AI and machine learning resource guide covering LLMs, reinforcement learning, RAG, and APIs for the AI Community of Practice.</li>
+                <li>Automated internal workflows using Python, SQL, and VBA, eliminating manual Jira ticket creation and improving team efficiency.</li>
+                <li>Served as a digital engineering and nuclear surety integrator on the Sentinel program, authoring 250+ requirements in DOORS and updating MBSE models in Cameo.</li>
+              </ul>
             </div>
           </div>
-        </section>
+        </div>
 
-<!-- ==========================
-        SERVICE SECTION 
-        =========================== -->
-        <section class="features text-center section-padding" id="service">
-          <div class="container">
-        <!-- Headline -->
-            <div class="row">
-              <div class="col-md-12">
-                <h1 class="arrow">Professional Services</h1>
-              </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Mechanical Engineer</h3>
+              <span class="timeline-company">Gibbs & Cox, A Leidos Company</span>
+              <span class="timeline-date">March 2022 - May 2023</span>
             </div>
-            <div class="row">
-          <!-- Service Box 1 -->
-                  <div class="col-md-4 wp2 item">
-                    <div class="icon">
-                      <i class="fa fa-cogs"></i><!-- Icon -->
-                    </div>
-                    <h2>AI & Machine Learning Solutions</h2><!-- Title -->
-                    <p>Specializing in end-to-end AI solutions from concept to deployment. I develop machine learning models, implement NLP systems, and create intelligent automation tools. My engineering background provides unique insights into applying AI to real-world systems, from predictive analytics to computer vision applications. I excel at translating complex business requirements into scalable AI solutions using Python, TensorFlow, PyTorch, and modern ML frameworks.</p><!-- Description -->
-                  </div>
-          <!-- Service Box 2 -->
-                  <div class="col-md-4 wp2 item delay-05s">
-                    <div class="icon">
-                      <i class="fa fa-desktop"></i><!-- Icon -->
-                    </div>
-                    <h2>Data Science & Analytics</h2><!-- Title -->
-                    <p>Expert in transforming raw data into actionable insights through advanced analytics and machine learning. I specialize in data preprocessing, feature engineering, and model development using Python, R, and SQL. My experience includes building predictive models, implementing statistical analysis, and creating data visualization dashboards. I'm proficient in MLOps practices, ensuring models are production-ready and maintainable. This expertise enables me to deliver data-driven solutions that drive business value and informed decision-making.</p><!-- Description -->
-                  </div>
-          <!-- Service Box 3 -->
-                  <div class="col-md-4 wp2 item delay-1s">
-                    <div class="icon">
-                      <i class="fa fa-cubes"></i><!-- Icon -->
-                    </div>
-                    <h2>AI Systems Integration</h2><!-- Title -->
-                    <p>Combining systems engineering expertise with AI implementation to create robust, scalable intelligent systems. I specialize in integrating AI models into production environments, designing MLOps pipelines, and ensuring seamless deployment of machine learning solutions. My background in complex systems engineering (Sentinel ICBM, Constellation-class frigate) provides unique insights into building reliable AI systems that meet enterprise requirements. I excel at architecting end-to-end AI solutions, from data ingestion to model serving, ensuring optimal performance and maintainability.</p><!-- Description -->
-                  </div>
-            </div>
-              </div>
+            <div class="timeline-body">
+              <ul>
+                <li>Developed and deployed internal tools using Python, Tkinter, and SQL, including an acronym lookup application adopted across teams.</li>
+                <li>Built a reinforcement learning algorithm in Python, achieving a top 10 finish in the Leidos AI Palooza.</li>
+                <li>Designed P&ID diagrams for Navy and research vessels.</li>
+              </ul>
             </div>
           </div>
-        </section>
+        </div>
 
-  
-      
-  
-
-
-    <!-- ==========================
-        BLOG SECTION 
-        =========================== -->
-    <section class="text-center section-padding" id="blog">
-          <div class="container">
-        <!-- Headline -->
-        <div class="row">
-              <div class="col-md-12">
-                <h1 class="arrow">Behind <span>the</span> code</h1>
-              </div>
-            </div><br><br>
-      
-      <!-- Blog Slider -->
-            <div class="row">
-              <div id="blogSlider">
-                <ul class="slides">
-                  <li>
-            <!-- Blog Entry 1 -->
-                    <div class="col-md-4 wp4">
-                      <div class="blog-item">
-                        <div class="img">
-                          <img src="img/portfolio/portfolio-10-thumbnail.jpg" class="grayscale" alt="PDF to Chat Project" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;"><!-- Blog Image -->
-                        </div>
-                        <h2><a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank">PDF-to-Chat</a></h2><!-- Headline -->
-                        <p>A retrieval augmented generation application made using Streamlit and LangChain that allows you to upload any PDF and query it using natural language. Built with Python and modern AI libraries.</p><!-- Description-->
-                      </div>
-                    </div>
-          <!-- Blog Entry 2 -->
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="blog-item">
-                        <div class="img">
-                          <img src="img/portfolio/portfolio-13-thumbnail.jpg" class="grayscale" alt="Best Defensive Catcher Project" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;"><!-- Blog Image -->
-                        </div>
-                        <h2><a href="https://github.com/matthewlieb/best-defensive-catcher" target="_blank">Best Defensive Catcher</a></h2><!-- Headline -->
-                        <p>Machine learning model using scikit-learn and advanced statistical analysis to predict the best defensive catchers in MLB with 85% accuracy.</p><!-- Description -->
-                      </div>
-                    </div>
-          <!-- Blog Entry 3 -->
-                    <div class="col-md-4 wp4 delay-1s">
-                      <div class="blog-item">
-                        <div class="img">
-                          <img src="img/portfolio/portfolio-16-thumbnail.jpg"  class="grayscale" alt="Philly Sports News Project" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;"><!-- Blog Image -->
-                        </div>
-                        <h2><a href="https://github.com/matthewlieb/philly-sports-news" target="_blank">Philly Sports News</a></h2><!-- Headline -->
-                        <p>A content aggregator web app for Philadelphia sports news, built with Python, HTML, and CSS, utilizing libraries like BeautifulSoup and Flask for web scraping and data presentation.</p><!-- Description-->
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-          <!-- Blog Entry 4 -->
-                    <div class="col-md-4 wp4">
-                      <div class="blog-item">
-                        <div class="img">
-                          <img src="img/portfolio/portfolio-14-thumbnail.jpg" class="grayscale" alt="Movie Database Project" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;"><!-- Blog Image -->
-                        </div>
-                        <h2><a href="https://github.com/matthewlieb/movie-db" target="_blank">Movie-DB</a></h2><!-- Headline -->
-                        <p>A comprehensive CRUD movie database application developed with Python and SQLite, featuring full database operations and user interface.</p><!-- Description -->
-                      </div>
-                    </div>
-          <!-- Blog Entry 5 -->
-                    <div class="col-md-4 wp4 delay-05s">
-                      <div class="blog-item">
-                        <div class="img">
-                          <img src="img/portfolio/portfolio-11-thumbnail.jpg" class="grayscale" alt="Delete Duplicates Project" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;"><!-- Blog Image -->
-                        </div>
-                        <h2><a href="https://github.com/matthewlieb/delete-duplicates" target="_blank">Delete Duplicates</a></h2>
-                        <p>A Python tkinter application to find and delete duplicate files in a selected directory, featuring a user-friendly GUI interface.</p>
-                      </div>
-                    </div>
-          <!-- Blog Entry 6 -->
-                    <div class="col-md-4 wp4 delay-1s">
-                      <div class="blog-item">
-                        <div class="img">
-                          <img src="img/portfolio/portfolio-09-thumbnail.jpg" class="grayscale" alt="Explain To Me AI Project" style="width: 100%; height: 200px; object-fit: cover; border-radius: 12px;"><!-- Blog Image -->
-                        </div>
-                        <h2><a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank">Explain To Me AI</a></h2><!-- Headline -->
-                        <p>Advanced NLP application using transformer models and natural language processing to explain complex topics and generate intelligent Q&A interactions.</p><!-- Description -->
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Junior Mechanical Engineer</h3>
+              <span class="timeline-company">BMT</span>
+              <span class="timeline-date">June 2021 - January 2022</span>
+            </div>
+            <div class="timeline-body">
+              <ul>
+                <li>Created relational databases using Microsoft Access and SQL to manage electrical loads for maritime systems.</li>
+                <li>Developed a genetic algorithm to optimize electrical panel loads.</li>
+                <li>Produced 2D and 3D CAD models for maritime projects.</li>
+              </ul>
             </div>
           </div>
-        </section>
-    <!-- ==========================
-        BLOG SECTION END
-        =========================== -->
-    
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- ==========================
-        CONTACT SECTION
-        =========================== -->
-        <section class="text-center section-padding contact-wrap" id="contact">
-          <div class="container">
-        <!-- Headline -->
-            <div class="row">
-              <div class="col-md-12">
-                <h1 class="arrow"><span>Contact</span></h1>
-              </div>
+  <!-- Projects Section -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">AI/ML applications and data science projects</p>
+      </div>
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-image">
+            <img src="img/portfolio/portfolio-10-thumbnail.jpg" alt="PDF to Chat RAG System" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">PDF to Chat - RAG System</h3>
+            <p class="project-description">Advanced RAG system using LangChain, vector embeddings, and transformer models for intelligent document Q&A. Built with Streamlit, Python, and modern AI libraries.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">Streamlit</span>
             </div>
-            <div class="row contact-details">
-        <!-- Adress Box -->
-              <div class="col-md-4">
-                <div class="dark-box box-hover">
-                  <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
-                  <p>1981 S. 1300 E. Salt Lake City, UT, 84105</p>
-                </div>
-              </div>
-        <!-- Phone Number Box -->
-              <div class="col-md-4">
-                <div class="dark-box box-hover">
-                  <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
-                  <p>+1 (406) 548-1549</p>
-                </div>
-              </div>
-        <!-- E-Mail Box -->
-              <div class="col-md-4">
-                <div class="dark-box box-hover">
-                  <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
-                  <p><a href="index.html#">matt.lieb@hotmail.com</a></p>
-                </div>
-              </div>
-            </div>
-
-      <br>
-      <!-- Social Buttons - use font-awesome, past in what you want -->
-            <div class="row">
-              <div class="col-md-12">
-                <ul class="social-buttons">
-                  <li><a href="https://github.com/matthewlieb" class="social-btn"><i class="fa fa-github"></i></a></li><!-- github -->
-                  <li><a href="https://x.com/sport_philly" class="social-btn"><i class="fa fa-twitter"></i></a></li><!-- twitter -->
-                  <li><a href="https://www.facebook.com/matt.ice22/" class="social-btn"><i class="fa fa-facebook"></i></a></li><!-- facebook -->
-          <li><a href="https://www.linkedin.com/in/matthew-lieb/" class="social-btn"><i class="fa fa-linkedin"></i></a></li><!-- deviantart -->
-          <li><a href="https://www.youtube.com/@Arch1medes" class="social-btn"><i class="fa fa-youtube"></i></a></li><!-- youtube -->
-                </ul>
-              </div>
+            <div class="project-links">
+              <a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank" class="project-link">View on GitHub</a>
             </div>
           </div>
-        </section>
-    <!-- ==========================
-        CONTACT SECTION END
-        =========================== -->
-    
-    
-    
-    <!-- ==========================
-        FOOTER SECTION
-        =========================== -->
-        <footer>
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12 text-center">
-                <p>All Rights Reserved. &copy; 2024 <a href="https://matthewlieb.github.io/">Matthew Lieb</a>
-              </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <img src="img/portfolio/portfolio-16-thumbnail.jpg" alt="Philly Sports News" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Philly Sports News</h3>
+            <p class="project-description">Content aggregator web app for Philadelphia sports news, built with Python, HTML, and CSS, utilizing libraries like BeautifulSoup and Flask for web scraping and data presentation.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">Web Scraping</span>
+              <span class="tech-tag">BeautifulSoup</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/matthewlieb/philly-sports-news" target="_blank" class="project-link">View on GitHub</a>
             </div>
           </div>
-        </footer>
-    <!-- ==========================
-        FOOTER SECTION END
-        =========================== -->   
-    
-    
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <!-- SmoothScroll -->           
-    <script type="text/javascript" src="assets/smoothscroll/smoothscroll.js"></script>
-    <!-- Bootstrap -->
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-  <!-- Waypoints -->
-  <script src="js/waypoints.min.js"></script>
-    <!-- classie.js -->
-  <script src="js/classie.js"></script>
-    <!-- FlexSlider -->
-    <script src="assets/flexslider/jquery.flexslider.js"></script>
-  <!-- Modernizr -->
-    <script src="js/modernizr.js"></script>
-  <!-- Text Rotator -->
-  <script src="assets/textrotator/jquery.simple-text-rotator.js"></script>
-  <!-- Lightbox.js -->
-    <script src="assets/lightbox/js/lightbox.min.js"></script>
-    <!-- Google Maps --> 
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeKBBPJTG3v5w3cNPAgM6ZsJiPyL1mP_o&amp;sensor=false"></script>
-  <!-- Theme JavaScript Core -->
-  <script src="js/main.js"></script>
-  <script src="js/script.js"></script>
+        </article>
 
+        <article class="project-card">
+          <div class="project-image">
+            <img src="img/portfolio/portfolio-13-thumbnail.jpg" alt="Best Defensive Catcher Analysis" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Best Defensive Catcher Analysis</h3>
+            <p class="project-description">Machine learning model using scikit-learn and advanced statistical analysis to predict the best defensive catchers in MLB with 85% accuracy.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">scikit-learn</span>
+              <span class="tech-tag">Machine Learning</span>
+              <span class="tech-tag">Statistical Analysis</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/matthewlieb/best-defensive-catcher" target="_blank" class="project-link">View on GitHub</a>
+            </div>
+          </div>
+        </article>
 
-<!-- Add this script at the end of your body or in a separate JS file -->
-<script>
-  function initMap() {
-      // Basic options for a simple Google Map
-      var mapOptions = {
-          // How zoomed in you want the map to start at (always required)
-          zoom: 15,
-          
-          scrollwheel: false,
-  
-          // The latitude and longitude to center the map (always required)
-          center: {lat: 40.7608, lng: -111.8910}, // Salt Lake 
-  
-          // How you would like to style the map. 
-          // This is where you would paste any style found on Snazzy Maps.
-          styles: [
-              {featureType:'water', stylers:[{color:'#F2F2F2'},{visibility:'on'}]},
-              {featureType:'landscape', stylers:[{color:'#FFFFFF'}]},
-              {featureType:'road', stylers:[{saturation:-100},{lightness:45}]},
-              {featureType:'road.highway', stylers:[{visibility:'simplified'}]},
-              {featureType:'road.arterial', elementType:'labels.icon', stylers:[{visibility:'off'}]},
-              {featureType:'administrative', elementType:'labels.text.fill', stylers:[{color:'#ADADAD'}]},
-              {featureType:'transit', stylers:[{visibility:'off'}]},
-              {featureType:'poi', stylers:[{visibility:'off'}]}
-          ]
-      };
-  
-      // Get the HTML DOM element that will contain your map 
-      var mapElement = document.getElementById('googlemaps');
-  
-      // Create the Google Map using our element and options defined above
-      var map = new google.maps.Map(mapElement, mapOptions);
-  
-      // You can add a marker to the map here if you want to show a specific location
-      var marker = new google.maps.Marker({
-          position: {lat: 40.7608, lng: -111.8910},
-          map: map,
-          title: 'Salt Lake City'
-      });
-  }
-  </script>
-  
-  <!-- TEXT ROTATOR SETTINGS -->
-    <script type="text/javascript">
-    $(".rotate").textrotator({
-      animation: "fade", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
-      separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
-      speed: 2000 // How many milliseconds until the next word show.
-    });
-    
-    // Hamburger menu functionality
-    document.getElementById('nav-toggle').addEventListener('click', function(e) {
-      e.preventDefault();
-      const hiddenNav = document.getElementById('hidden-nav');
-      hiddenNav.classList.toggle('show');
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
-      const hiddenNav = document.getElementById('hidden-nav');
-      const navToggle = document.getElementById('nav-toggle');
-      
-      if (!hiddenNav.contains(e.target) && !navToggle.contains(e.target)) {
-        hiddenNav.classList.remove('show');
-      }
-    });
-    </script>
-  
-    </body>
+        <article class="project-card">
+          <div class="project-image">
+            <img src="img/portfolio/portfolio-09-thumbnail.jpg" alt="Explain To Me AI" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Explain To Me AI</h3>
+            <p class="project-description">Advanced NLP application using transformer models and natural language processing to explain complex topics and generate intelligent Q&A interactions.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">NLP</span>
+              <span class="tech-tag">Transformers</span>
+              <span class="tech-tag">AI</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/matthewlieb/pdf-to-chat" target="_blank" class="project-link">View on GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <img src="img/portfolio/portfolio-14-thumbnail.jpg" alt="Movie Database" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Movie Database</h3>
+            <p class="project-description">A comprehensive CRUD movie database application developed with Python and SQLite, featuring full database operations and user interface.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQLite</span>
+              <span class="tech-tag">CRUD</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/matthewlieb/movie-db" target="_blank" class="project-link">View on GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">
+            <img src="img/portfolio/portfolio-11-thumbnail.jpg" alt="Delete Duplicates" loading="lazy">
+          </div>
+          <div class="project-content">
+            <h3 class="project-title">Delete Duplicates</h3>
+            <p class="project-description">A Python tkinter application to find and delete duplicate files in a selected directory, featuring a user-friendly GUI interface.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Tkinter</span>
+              <span class="tech-tag">File Management</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/matthewlieb/delete-duplicates" target="_blank" class="project-link">View on GitHub</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="projects-footer">
+        <a href="https://github.com/matthewlieb" target="_blank" class="btn-primary">View All Projects on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Technical Skills</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="skill-category-title">AI & Data Science</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">R</span>
+            <span class="skill-tag">SQL/MySQL</span>
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">scikit-learn</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">Hugging Face</span>
+            <span class="skill-tag">Reinforcement Learning</span>
+            <span class="skill-tag">LLMs</span>
+            <span class="skill-tag">RAG</span>
+            <span class="skill-tag">OpenAI API</span>
+            <span class="skill-tag">FastAPI</span>
+            <span class="skill-tag">Streamlit</span>
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">LangChain</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Infrastructure & Tools</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Heroku</span>
+            <span class="skill-tag">Postgres</span>
+            <span class="skill-tag">Jupyter</span>
+            <span class="skill-tag">GitHub</span>
+            <span class="skill-tag">Cameo</span>
+            <span class="skill-tag">DOORS</span>
+            <span class="skill-tag">Jira</span>
+            <span class="skill-tag">Confluence</span>
+            <span class="skill-tag">VSCode</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-category-title">Engineering Design</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">AutoCAD</span>
+            <span class="skill-tag">SOLIDWORKS</span>
+            <span class="skill-tag">ANSYS</span>
+            <span class="skill-tag">MBSE</span>
+            <span class="skill-tag">SysML</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-subtitle">Let's connect and discuss opportunities in AI, ML, and data science</p>
+      </div>
+      <div class="contact-content">
+        <div class="contact-main">
+          <p class="contact-intro">I'm always interested in connecting with fellow engineers, researchers, and teams working on interesting problems in AI, machine learning, and data science.</p>
+          <div class="contact-actions">
+            <a href="mailto:matt.lieb@hotmail.com" class="contact-btn contact-btn-primary">
+              <span class="contact-btn-label">Email Me</span>
+              <span class="contact-btn-value">matt.lieb@hotmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/matthew-lieb/" target="_blank" class="contact-btn contact-btn-secondary">
+              <span class="contact-btn-label">Connect on LinkedIn</span>
+              <span class="contact-btn-value">matthew-lieb</span>
+            </a>
+          </div>
+        </div>
+        <div class="contact-details-sidebar">
+          <div class="contact-detail-item">
+            <div class="contact-detail-header">Email</div>
+            <div class="contact-detail-value"><a href="mailto:matt.lieb@hotmail.com">matt.lieb@hotmail.com</a></div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-header">LinkedIn</div>
+            <div class="contact-detail-value"><a href="https://www.linkedin.com/in/matthew-lieb/" target="_blank">linkedin.com/in/matthew-lieb</a></div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-header">GitHub</div>
+            <div class="contact-detail-value"><a href="https://github.com/matthewlieb" target="_blank">github.com/matthewlieb</a></div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-header">Location</div>
+            <div class="contact-detail-value">Salt Lake City, UT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Matthew Lieb. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Minimal JavaScript - loaded at end for performance -->
+  <script src="js/main.js" defer></script>
+</body>
 </html>
